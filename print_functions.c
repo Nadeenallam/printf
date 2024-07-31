@@ -61,6 +61,7 @@ int print_string(va_list ap, params_t *params)
 	j = pad = _strlen(str);
 	if (params->precision < pad)
 		j = pad = params->precision;
+
 	if (params->minus_flag)
 	{
 		if (params->precision != UINT_MAX)
@@ -75,7 +76,9 @@ int print_string(va_list ap, params_t *params)
 	{
 		if (params->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
-				sum += _puts(str);
+				sum += _puts(*str++);
+		else
+			sum += _puts(str);
 	}
 	return (sum);
 }
@@ -95,7 +98,7 @@ int print_percent(va_list ap, params_t *params)
 }
 
 /**
- * print_S - custome format specifier
+ * print_S - custom format specifier
  * @ap: argument pointer
  * @params: the parameters struct
  *

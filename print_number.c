@@ -50,6 +50,7 @@ int print_number(char *str, params_t *params)
 			*--str = '0';
 	if (neg)
 		*--str = '-';
+
 	if (!params->minus_flag)
 		return (print_number_right_shift(str, params));
 	else
@@ -59,7 +60,7 @@ int print_number(char *str, params_t *params)
 /**
  * print_number_right_shift  - prints a numbe with options
  * @str: the base number as a string
- * @params: chars printed
+ * @params: the parameter struct
  *
  * Return: chars printed
 */
@@ -75,7 +76,6 @@ int print_number_right_shift(char *str, params_t *params)
 		str++;
 	else
 		neg = 0;
-
 	if ((params->plus_flag && !neg2) ||
 			(!params->plus_flag && params->space_flag && !neg2))
 		i++;
@@ -119,11 +119,9 @@ int print_number_left_shift(char *str, params_t *params)
 	else
 		neg = 0;
 
-	if ((params->plus_flag && !neg2) && !params->unsign)
+	if (params->plus_flag && !neg2 && !params->unsign)
 		n += _putchar('+'), i++;
 
-	if (params->plus_flag && !neg2 && pad_char == '0' && !params->unsign)
-		n += _putchar('+');
 	else if (!params->space_flag && !neg2 && !params->unsign)
 		n += _putchar(' '), i++;
 	n += _puts(str);
