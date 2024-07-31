@@ -17,6 +17,7 @@
 
 #define CONVERT_LOWERCASE 1
 #define CONVERT_UNSIGNED 2
+
 /**
  * struct parameter - parameter struct
  *
@@ -53,7 +54,7 @@ typedef struct parameters
 } params_t;
 
 /**
- * struct specifier - struct token
+ * struct specifier - Struct token
  *
  * @specifier: format token
  * @f: The function associated
@@ -73,7 +74,7 @@ int print_char(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
-nt print_s(va_list ap, params_t *params);
+nt print_S(va_list ap, params_t *params);
 
 /* number.c module */
 char *convert(long int num, int base, int flags, params_t *params);
@@ -94,7 +95,7 @@ int print_binary(va_list ap, params_t *params);
 int print_octal(va_list ap, params_t *params);
 
 /* simple_printers.c module */
-int print_form_to(char *start, char *stop, char *expect);
+int print_form_to(char *start, char *stop, char *except);
 int print_rev(va_list ap, params_t *params);
 int print_rot13(va_list ap, params_t *params);
 
@@ -113,4 +114,5 @@ char *get_precision(char *p, params_t *params, va_list ap);
 
 /* _print.c module */
 int _printf(const char *format, ...);
+
 #endif

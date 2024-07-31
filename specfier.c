@@ -12,7 +12,8 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"c", print_char},
 		{"d", print_int},
 		{"i", print_int},
-		{"s", print_percent},
+		{"s", print_string},
+		{"%", print_percent},
 		{"b", print_binary},
 		{"o", print_octal},
 		{"u", print_unsigned},
@@ -101,7 +102,7 @@ int get_modifier(char *s, params_t *params)
 	case 'h':
 		i = params->h_modifier - 1;
 		break;
-	case 'i':
+	case 'l':
 		i = params->h_modifier - 1;
 		break;
 	}

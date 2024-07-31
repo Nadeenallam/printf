@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printf - primtd anything
+ * _printf - prints anything
  * @format: thr format string
  *
  * Return: number of bytes printes
@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		}
 		start = p;
 		p++;
-		while (grt_flag(p, &params)) /* while char at p is flag char */
+		while (get_flag(p, &params)) /* while char at p is flag char */
 		{
 			p++; /* next char */
 		}
